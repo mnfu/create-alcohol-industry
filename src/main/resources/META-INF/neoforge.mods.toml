@@ -30,3 +30,10 @@ logoFile="logo.png"
     versionRange="[6.0.9,6.1.0)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies."alcohol_industry"]]
+    modId="jei"
+    type="optional"
+    versionRange="[19.0.0,)"
+    ordering="AFTER"
+    side="CLIENT"

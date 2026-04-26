@@ -1,12 +1,38 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/block",
   "textures": {
     "particle": "alcohol_industry:block/alcohol_boiler_side",
-    "down": "alcohol_industry:block/alcohol_boiler_bottom",
-    "up": "alcohol_industry:block/alcohol_boiler_top",
-    "north": "alcohol_industry:block/alcohol_boiler_front",
-    "south": "alcohol_industry:block/alcohol_boiler_side",
-    "west": "alcohol_industry:block/alcohol_boiler_side",
-    "east": "alcohol_industry:block/alcohol_boiler_side"
-  }
+    "bottom": "alcohol_industry:block/alcohol_boiler_bottom",
+    "top": "alcohol_industry:block/alcohol_boiler_top",
+    "front": "alcohol_industry:block/alcohol_boiler_front",
+    "side": "alcohol_industry:block/alcohol_boiler_side"
+  },
+  "elements": [
+    {
+      "name": "body",
+      "from": [1, 0, 1],
+      "to": [15, 14, 15],
+      "faces": {
+        "north": { "texture": "#front", "uv": [1, 2, 15, 16] },
+        "south": { "texture": "#side",  "uv": [1, 2, 15, 16] },
+        "west":  { "texture": "#side",  "uv": [1, 2, 15, 16] },
+        "east":  { "texture": "#side",  "uv": [1, 2, 15, 16] },
+        "up":    { "texture": "#top",   "uv": [1, 1, 15, 15] },
+        "down":  { "texture": "#bottom","uv": [1, 1, 15, 15], "cullface": "down" }
+      }
+    },
+    {
+      "name": "rim",
+      "from": [0, 14, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": { "texture": "#side",   "uv": [0, 0, 16, 2] },
+        "south": { "texture": "#side",   "uv": [0, 0, 16, 2] },
+        "west":  { "texture": "#side",   "uv": [0, 0, 16, 2] },
+        "east":  { "texture": "#side",   "uv": [0, 0, 16, 2] },
+        "up":    { "texture": "#top",    "uv": [0, 0, 16, 16] },
+        "down":  { "texture": "#bottom", "uv": [0, 0, 16, 16] }
+      }
+    }
+  ]
 }

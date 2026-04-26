@@ -8,7 +8,6 @@
   
   "fluid_type.alcohol_industry.alcohol_base_fluid": "Alcohol Base",
   "item.alcohol_industry.alcohol_base_bucket": "Alcohol Base Bucket",
-  "item.alcohol_industry.alcohol_base": "Bottle of Alcohol Base",
   "block.alcohol_industry.alcohol_base_fluid_block": "Alcohol Base",
 
   "fluid_type.alcohol_industry.beer": "Beer",
@@ -29,5 +28,16 @@
   "fluid_type.alcohol_industry.tequila": "Tequila",
   "item.alcohol_industry.tequila_bucket": "Tequila Bucket",
   "item.alcohol_industry.tequila": "Bottle of Tequila",
-  "block.alcohol_industry.tequila_block": "Tequila"
+  "block.alcohol_industry.tequila_block": "Tequila",
+
+  "alcohol_industry.goggles.alcohol_boiler": "Alcohol Boiler Info:",
+  "alcohol_industry.goggles.alcohol_boiler.input": "Input Tank:",
+  "alcohol_industry.goggles.alcohol_boiler.input_empty": "Input Tank: Empty",
+  "alcohol_industry.goggles.alcohol_boiler.output": "Output Tank:",
+  "alcohol_industry.goggles.alcohol_boiler.output_empty": "Output Tank: Empty",
+  "alcohol_industry.goggles.alcohol_boiler.processing": "Processing:",
+  "alcohol_industry.goggles.alcohol_boiler.heat": "Heat Level:",
+
+  "alcohol_industry.jei.alcohol_boiling": "Alcohol Boiling",
+  "alcohol_industry.jei.alcohol_boiling.info": "Heat requirement: %s"
 }

@@ -6,6 +6,10 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -23,14 +27,22 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class AlcoholBoilerBlock extends Block implements IBE<AlcoholBoilerBlockEntity>, IWrenchable, EntityBlock {
     
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
+    
+    private static final VoxelShape SHAPE;
+    static {
+        VoxelShape body = Block.box(1, 0, 1, 15, 14, 15);
+        VoxelShape rim = Block.box(0, 14, 0, 16, 16, 16);
+        SHAPE = Shapes.join(body, rim, BooleanOp.OR);
+    }
     
     public AlcoholBoilerBlock(Properties properties) {
         super(properties);
@@ -84,6 +96,31 @@ public class AlcoholBoilerBlock extends Block implements IBE<AlcoholBoilerBlockE
             }
         }
         super.onRemove(state, level, pos, newState, isMoving);
+    }
+    
+    
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        BlockEntity be = level.getBlockEntity(pos);
+        if (be instanceof AlcoholBoilerBlockEntity boiler && boiler.isProcessing()) {
+            double x = pos.getX() + 0.2 + random.nextDouble() * 0.6;
+            double y = pos.getY() + 1.0;
+            double z = pos.getZ() + 0.2 + random.nextDouble() * 0.6;
+            
+            level.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, x, y, z, 
+                0.0, 0.04 + random.nextDouble() * 0.02, 0.0);
+            
+            if (random.nextInt(4) == 0) {
+                level.addParticle(ParticleTypes.BUBBLE_POP, x, y - 0.2, z, 
+                    0.0, 0.02, 0.0);
+            }
+            
+            if (random.nextInt(12) == 0) {
+                level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                    SoundEvents.BUBBLE_COLUMN_WHIRLPOOL_AMBIENT, SoundSource.BLOCKS,
+                    0.3F, 0.8F + random.nextFloat() * 0.4F, false);
+            }
+        }
     }
     
     

@@ -12,7 +12,6 @@ public class ModFluids {
     public static final DeferredRegister<Fluid> FLUIDS = 
         DeferredRegister.create(BuiltInRegistries.FLUID, AlcoholIndustry.MOD_ID);
 
-    // Alcohol Base
     public static final DeferredHolder<Fluid, FlowingFluid> ALCOHOL_BASE_SOURCE = 
         FLUIDS.register("alcohol_base_fluid", () -> new BaseFlowingFluid.Source(ModFluids.ALCOHOL_BASE_PROPERTIES));
     public static final DeferredHolder<Fluid, FlowingFluid> ALCOHOL_BASE_FLOWING = 
@@ -21,7 +20,6 @@ public class ModFluids {
             ModFluidTypes.ALCOHOL_BASE_FLUID_TYPE, ALCOHOL_BASE_SOURCE, ALCOHOL_BASE_FLOWING)
             .bucket(ModItems.ALCOHOL_BASE_BUCKET).block(ModBlocks.ALCOHOL_BASE_BLOCK);
 
-    // Beer
     public static final DeferredHolder<Fluid, FlowingFluid> BEER_SOURCE = 
         FLUIDS.register("beer", () -> new BaseFlowingFluid.Source(ModFluids.BEER_PROPERTIES));
     public static final DeferredHolder<Fluid, FlowingFluid> BEER_FLOWING = 
@@ -30,7 +28,6 @@ public class ModFluids {
             ModFluidTypes.BEER_TYPE, BEER_SOURCE, BEER_FLOWING)
             .bucket(ModItems.BEER_BUCKET).block(ModBlocks.BEER_BLOCK);
 
-    // Vodka
     public static final DeferredHolder<Fluid, FlowingFluid> VODKA_SOURCE = 
         FLUIDS.register("vodka", () -> new BaseFlowingFluid.Source(ModFluids.VODKA_PROPERTIES));
     public static final DeferredHolder<Fluid, FlowingFluid> VODKA_FLOWING = 
@@ -39,7 +36,6 @@ public class ModFluids {
             ModFluidTypes.VODKA_TYPE, VODKA_SOURCE, VODKA_FLOWING)
             .bucket(ModItems.VODKA_BUCKET).block(ModBlocks.VODKA_BLOCK);
 
-    // Whiskey
     public static final DeferredHolder<Fluid, FlowingFluid> WHISKEY_SOURCE = 
         FLUIDS.register("whiskey", () -> new BaseFlowingFluid.Source(ModFluids.WHISKEY_PROPERTIES));
     public static final DeferredHolder<Fluid, FlowingFluid> WHISKEY_FLOWING = 
@@ -48,7 +44,6 @@ public class ModFluids {
             ModFluidTypes.WHISKEY_TYPE, WHISKEY_SOURCE, WHISKEY_FLOWING)
             .bucket(ModItems.WHISKEY_BUCKET).block(ModBlocks.WHISKEY_BLOCK);
 
-    // Tequila
     public static final DeferredHolder<Fluid, FlowingFluid> TEQUILA_SOURCE = 
         FLUIDS.register("tequila", () -> new BaseFlowingFluid.Source(ModFluids.TEQUILA_PROPERTIES));
     public static final DeferredHolder<Fluid, FlowingFluid> TEQUILA_FLOWING = 

@@ -91,6 +91,14 @@ public class AlcoholBoilingRecipe implements Recipe<RecipeInput> {
         return heatRequirement;
     }
     
+    public List<Ingredient> getIngredients_() {
+        return ingredients;
+    }
+    
+    public FluidStack getFluidIngredient() {
+        return fluidIngredient.copy();
+    }
+    
     @Override
     public boolean matches(RecipeInput input, Level level) {
         return false;
@@ -160,4 +168,3 @@ public class AlcoholBoilingRecipe implements Recipe<RecipeInput> {
         }
     }
 }
-
